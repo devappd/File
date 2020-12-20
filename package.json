@@ -11,7 +11,7 @@
   "author": "AJ ONeal <coolaj86@gmail.com>",
   "contributors": [],
   "dependencies": {
-    "mime": "^1.2.11"
+    "mime": "^2.4.6"
   },
   "main": "File.js",
   "version": "0.10.2"

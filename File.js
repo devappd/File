@@ -24,6 +24,29 @@
 
     if ('string' === typeof input) {
       self.path = input;
+    } else if (arguments.length > 1) {
+      // bits
+      // name
+      // options
+      let bits = arguments[0];
+      if (bits instanceof Array) {
+        self.buffer = Buffer.concat(bits.map(x => Buffer.from(x)));
+      } else if (bits instanceof Buffer) {
+        self.buffer = bits;
+      } else {
+        throw new Error('Invalid bits argument.');
+      }
+
+      self.name = arguments[1];
+
+      if (arguments.length > 2) {
+        let options = arguments[2];
+        if (options instanceof Object) {
+          self.type = arguments[2].type;
+          self.lastModifiedDate = arguments[2].lastModified
+            || Math.floor(Date.now() / 1000);
+        }
+      }
     } else {
       Object.keys(input).forEach(function (k) {
         self[k] = input[k];
@@ -34,7 +57,7 @@
     if (!self.name) {
       throw new Error("No name");
     }
-    self.type = self.type || mime.lookup(self.name);
+    self.type = self.type || mime.getType(self.name);
 
     if (!self.path) {
       if (self.buffer) {
