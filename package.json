@@ -1,7 +1,7 @@
 {
-  "name": "File",
+  "name": "@devappd/nodejs-html5-file",
   "description": "HTML5 FileAPI `File` for Node.js",
-  "url": "http://github.com/coolaj86/node-file-api/",
+  "url": "http://github.com/devappd/node-file-api/",
   "keywords": [
     "html5",
     "jsdom",
@@ -9,10 +9,11 @@
     "file"
   ],
   "author": "AJ ONeal <coolaj86@gmail.com>",
-  "contributors": [],
+  "license": "Apache",
+  "contributors": ["devappd"],
   "dependencies": {
     "mime": "^2.4.6"
   },
   "main": "File.js",
-  "version": "0.10.2"
+  "version": "0.11.0"
 }
